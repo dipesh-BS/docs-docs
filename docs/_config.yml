@@ -1,0 +1,15 @@
+title: docs4llm
+description: Searchable documentation for AI agents
+# Owner: set the public origin and project-site prefix before publishing.
+url: "https://dipesh-BS.github.io"
+baseurl: "/docs4llm-docs"
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: false
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

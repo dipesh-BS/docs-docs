@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | escape }} | {{ site.title | escape }}</title>
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header><a href="{{ '/' | relative_url }}">docs4llm</a><span>Documentation for AI agents</span></header>
+  <div class="shell">
+    <nav aria-label="Documentation">
+      <a href="{{ '/' | relative_url }}">Documentation home</a>
+      <a href="{{ '/guides/quickstart.html' | relative_url }}">Quickstart</a>
+      <a href="{{ '/guides/mcp-setup.html' | relative_url }}">Connect your agent</a>
+      <a href="{{ '/ARCHITECTURE.html' | relative_url }}">Architecture</a>
+      <a href="{{ '/TINYFISH_INTEGRATION.html' | relative_url }}">Tinyfish integration</a>
+      <a href="{{ '/MCP_SPEC.html' | relative_url }}">MCP and search</a>
+      <a href="{{ '/STATUS.html' | relative_url }}">Implementation status</a>
+      <a href="{{ '/SHIPPING_CHECKLIST.html' | relative_url }}">Shipping checklist</a>
+    </nav>
+    <main id="content">{{ content }}</main>
+  </div>
+  <footer>Shipping documentation · Updated 20 October 2026 · Planned behavior is labeled.</footer>
+</body>
+</html>
