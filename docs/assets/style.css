@@ -2,75 +2,93 @@
 
 html { scroll-behavior: smooth; }
 
+:root {
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --panel-alt: #f3f4f6;
+  --border: #e5e7eb;
+  --text: #111827;
+  --muted: #52607a;
+  --subtle: #6b7280;
+  --brand: #2563eb;
+  --brand-soft: rgba(37, 99, 235, 0.08);
+  --code-bg: #f3f4f6;
+  --code-border: #dfe3ea;
+  --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
 body {
   margin: 0;
-  background: #111827;
-  color: #e5e7eb;
+  background: var(--bg);
+  color: var(--text);
   font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 header {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 14px 5vw;
-  background: rgba(15, 23, 32, 0.96);
-  border-bottom: 1px solid #2d3748;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 5vw;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
 }
 
 header a {
-  color: #f8fafc;
+  color: var(--text);
   text-decoration: none;
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
 header span,
 footer {
-  color: #94a3b8;
+  color: var(--muted);
   font-size: 0.8rem;
 }
 
 .shell {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
+  grid-template-columns: 260px minmax(0, 1fr);
   max-width: 1280px;
   margin: 0 auto;
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - 74px);
 }
 
 nav {
   padding: 28px 18px 48px;
-  border-right: 1px solid #2d3748;
-  background: rgba(15, 23, 32, 0.78);
+  background: linear-gradient(180deg, #f8fafc 0%, #f4f6f8 100%);
+  border-right: 1px solid var(--border);
 }
 
 nav a {
   display: block;
-  padding: 8px 10px;
-  margin-bottom: 4px;
-  border-radius: 6px;
-  color: #dbeafe;
+  padding: 9px 12px;
+  margin: 2px 0;
+  border-radius: 8px;
+  color: var(--text);
   text-decoration: none;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  font-weight: 500;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 }
 
 nav a:hover,
 nav a:focus-visible {
-  background: rgba(96, 165, 250, 0.12);
-  color: #ffffff;
+  background: var(--brand-soft);
+  color: var(--brand);
   transform: translateX(2px);
 }
 
 main {
-  padding: 32px 40px 64px;
+  padding: 36px 48px 80px;
   min-width: 0;
   overflow-wrap: anywhere;
-  background: transparent;
+  background: var(--panel);
 }
 
 main > *:first-child { margin-top: 0; }
@@ -79,43 +97,45 @@ main h1,
 main h2,
 main h3,
 main h4 {
-  color: #f3f4f6;
+  color: var(--text);
   line-height: 1.2;
   letter-spacing: -0.03em;
   margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.8rem;
 }
 
 main h1 {
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.3rem, 4vw, 3.7rem);
+  font-weight: 800;
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
 main h2 {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(1.7rem, 2.5vw, 2.35rem);
+  margin-top: 2.4rem;
 }
 
 main h3 {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
 }
 
 main p,
 main li,
 main dd,
 main dt {
-  color: #dfe7f6;
+  color: #1f2937;
   line-height: 1.75;
 }
 
 main p {
-  margin: 0 0 1rem;
+  margin: 0 0 1.05rem;
 }
 
 main ul,
 main ol {
-  margin: 0 0 1.5rem 1.4rem;
-  padding-left: 1rem;
+  margin: 0 0 1.3rem 1.3rem;
+  padding-left: 0.6rem;
 }
 
 main li {
@@ -123,30 +143,32 @@ main li {
 }
 
 main a {
-  color: #7cc4ff;
+  color: var(--brand);
   text-decoration: underline;
   text-underline-offset: 0.18em;
+  text-decoration-thickness: 1.2px;
 }
 
 main a:hover,
 main a:focus-visible {
-  color: #bfe3ff;
+  color: #1d4ed8;
 }
 
 pre {
-  background: #0b1220;
-  color: #dbeafe;
+  background: var(--code-bg);
+  color: #0f172a;
   padding: 18px 20px;
-  border: 1px solid #2d3748;
+  border: 1px solid var(--code-border);
   border-radius: 10px;
   overflow-x: auto;
   margin: 1.25rem 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
 code {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 0.9em;
-  color: #dbeafe;
+  color: #111827;
 }
 
 pre code {
@@ -161,30 +183,33 @@ table {
   overflow-x: auto;
   border-collapse: collapse;
   margin: 1.5rem 0;
-  border: 1px solid #2d3748;
+  border: 1px solid var(--border);
   border-radius: 10px;
+  background: var(--panel);
 }
 
 th,
 td {
-  border: 1px solid #2d3748;
+  border: 1px solid var(--border);
   padding: 10px 14px;
   text-align: left;
   vertical-align: top;
-  color: #e2e8f0;
+  color: #111827;
 }
 
 th {
-  background: rgba(59, 130, 246, 0.12);
-  color: #f8fbff;
+  background: #f8fafc;
+  color: #0f172a;
+  font-weight: 700;
 }
 
 blockquote {
   margin: 1.5rem 0;
-  padding: 0.8rem 1.1rem 0.8rem 1.2rem;
-  border-left: 4px solid #7cc4ff;
-  background: rgba(124, 196, 255, 0.08);
-  color: #dfe7f6;
+  padding: 0.9rem 1.1rem 0.9rem 1.2rem;
+  border-left: 4px solid var(--brand);
+  background: var(--brand-soft);
+  border-radius: 0 10px 10px 0;
+  color: #1f2937;
 }
 
 blockquote p:last-child {
@@ -192,18 +217,18 @@ blockquote p:last-child {
 }
 
 footer {
-  padding: 20px 24px 28px;
-  border-top: 1px solid #2d3748;
+  padding: 20px 24px 30px;
+  border-top: 1px solid var(--border);
   text-align: center;
-  background: rgba(15, 23, 32, 0.9);
+  background: #ffffff;
 }
 
 .skip {
   position: absolute;
   left: 12px;
   top: -60px;
-  background: #f8fafc;
-  color: #0f172a;
+  background: #111827;
+  color: #fff;
   padding: 8px 12px;
   border-radius: 6px;
   text-decoration: none;
@@ -214,15 +239,11 @@ footer {
 }
 
 :focus-visible {
-  outline: 3px solid #7cc4ff;
+  outline: 3px solid rgba(37, 99, 235, 0.6);
   outline-offset: 3px;
 }
 
 @media (max-width: 760px) {
-  body {
-    background: #0f1720;
-  }
-
   .shell {
     display: block;
   }
@@ -230,7 +251,7 @@ footer {
   nav {
     padding: 12px 14px;
     border-right: 0;
-    border-bottom: 1px solid #2d3748;
+    border-bottom: 1px solid var(--border);
   }
 
   nav a {
@@ -242,12 +263,12 @@ footer {
     padding: 24px 20px 48px;
   }
 
-  header span {
-    display: none;
-  }
-
   header {
     gap: 12px;
-    padding-inline: 18px;
+    padding: 14px 18px;
+  }
+
+  header span {
+    display: none;
   }
 }
